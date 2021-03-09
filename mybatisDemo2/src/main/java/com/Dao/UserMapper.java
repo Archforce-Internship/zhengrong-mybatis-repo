@@ -16,4 +16,5 @@ public interface UserMapper {
     Integer update(User user);
     Integer deleteUser(int id);
     Integer update2(Map map);
+    List<User> getUserLike(String str);
 }
