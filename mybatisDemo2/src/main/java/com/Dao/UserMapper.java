@@ -3,6 +3,7 @@ package com.Dao;
 import com.pojo.User;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author 517
@@ -14,4 +15,5 @@ public interface UserMapper {
     Integer addUser(User user);
     Integer update(User user);
     Integer deleteUser(int id);
+    Integer update2(Map map);
 }

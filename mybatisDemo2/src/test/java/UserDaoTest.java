@@ -5,7 +5,9 @@ import org.apache.ibatis.scripting.xmltags.ForEachSqlNode;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author 517
@@ -49,6 +51,18 @@ public class UserDaoTest {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         mapper.update(new User(6, "shaniryo", "214213"));
+        sqlSession.commit();//增删改提交事务
+        sqlSession.close();
+    }
+
+    @Test
+    public void testUpdateMap(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("userId",6);
+        map.put("userPwd","nuclear-mission");
+        mapper.update2(map);
         sqlSession.commit();//增删改提交事务
         sqlSession.close();
     }

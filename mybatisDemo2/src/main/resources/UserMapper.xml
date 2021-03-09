@@ -16,6 +16,9 @@
     <update id="update" parameterType="com.pojo.User">
         update mybatis.user set name =#{name},pwd =#{pwd} where id = #{id};
     </update>
+    <update id="update2" parameterType="Map">
+        update mybatis.user set pwd =#{userPwd} where id = #{userId};
+    </update>
     <delete id="deleteUser" parameterType="int">
         delete from mybatis.user where id = #{id};
     </delete>
