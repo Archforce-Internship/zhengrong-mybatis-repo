@@ -1,9 +1,10 @@
 import com.Dao.UserMapper;
 import com.pojo.User;
 import com.util.MybatisUtils;
-import org.apache.ibatis.scripting.xmltags.ForEachSqlNode;
 import org.apache.ibatis.session.SqlSession;
+import org.apache.log4j.Logger;
 import org.junit.Test;
+
 
 import java.util.HashMap;
 import java.util.List;
@@ -14,6 +15,8 @@ import java.util.Map;
  * @date 2021-03-09 - 11:15
  */
 public class UserDaoTest {
+
+    static Logger logger = Logger.getLogger(UserDaoTest.class);
     @Test
     public void test() {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
@@ -33,7 +36,7 @@ public class UserDaoTest {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
 
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-        User user = mapper.getUserId(2);
+        User user = mapper.getUserId(1);
         System.out.println(user);
 
         sqlSession.close();
@@ -91,5 +94,10 @@ public class UserDaoTest {
         }
 
         sqlSession.close();
+    }
+
+    @Test
+    public void testLog(){
+    logger.info("SqlSession");
     }
 }

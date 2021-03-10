@@ -4,12 +4,20 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.Dao.UserMapper">
+
+
+    <resultMap id="UserMap" type="com.pojo.User">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="pwd" property="password"/>
+    </resultMap>
+    <select id="getUserId" resultMap="UserMap">
+        select * from mybatis.user where id = #{id};
+    </select>
     <select id="getUserList" resultType="com.pojo.User">
     select * from mybatis.user
   </select>
-    <select id="getUserId" parameterType="int" resultType="com.pojo.User">
-        select * from mybatis.user where id = #{id};
-    </select>
+
     <select id="addUser" parameterType="com.pojo.User">
         insert into mybatis.user(id,name,pwd) values (#{id},#{name},#{pwd});
     </select>

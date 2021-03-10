@@ -14,7 +14,10 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
+//    private int id;
+//    private String name;
+//    private String pwd;
     private int id;
     private String name;
-    private String pwd;
+    private String password;
 }
