@@ -9,6 +9,7 @@
     <version>1.0-SHAPSHOT</version>
     <modules>
         <module>mybatisDemo2</module>
+        <module>mybatis-02</module>
     </modules>
 
     <dependencies>
