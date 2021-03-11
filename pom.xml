@@ -10,6 +10,7 @@
     <modules>
         <module>mybatisDemo2</module>
         <module>mybatis-02</module>
+        <module>mybatis-03</module>
     </modules>
 
     <dependencies>

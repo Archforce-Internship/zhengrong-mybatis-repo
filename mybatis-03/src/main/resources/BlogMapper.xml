@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Dao.BlogMapper">
+
+    <insert id="addBlog" parameterType="pojo.Blog">
+        insert into blog values (#{id},#{title},#{author},#{createTime},#{views})
+    </insert>
+    <select id="queryBlog" parameterType="map" resultType="pojo.Blog">
+        select * from blog
+        <where>
+        <if test="title != null">
+        title = #{title}
+        </if>
+        <if test="author != null">
+            and author = #{author}
+        </if></where>
+    </select>
+</mapper>
